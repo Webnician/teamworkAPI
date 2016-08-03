@@ -6,7 +6,10 @@
      * Time: 1:30 PM
      */
     include_once ("curl-request.php");
-    include_once ("render-return.php");
+    include_once ("views/recent-activity-view.php");
+    include_once ("submit-types.php");
+
+    //look for local env file
     if (file_exists('theEnvlocal.php'))
     {
         include_once ('theEnvlocal.php');
@@ -15,30 +18,20 @@
         include_once("theEnv.php");
     }
 
-    function get_Submit_Type($subtype)
-    {
-        $returnUrl = "";
-        if ($subtype == "recentactivity")
-        {
-            $returnUrl = _Base_URL."/latestActivity.json";
-        }
-        if($subtype == "allprojects")
-        {
-            $returnUrl = _Base_URL."/projects.json";
-        }
-        return $returnUrl;
-    }
 
-    $url = "http://teamwork.onlinelearning-c.org/projects.json";
-    $url2 = "http://teamwork.onlinelearning-c.org/latestActivity.json";
+
+   //the full url variable
 $theGetUrl = '';
-if($_POST["theSubmitValue"] != "")
-{
-    $theSubmitType = $_POST["theSubmitValue"];
-$theGetUrl = get_Submit_Type($theSubmitType);
-}
+
+    //get recent activity
+    if($_POST["theSubmitValue"] == "recentactivity")
+        {
+            $theSubmitType = $_POST["theSubmitValue"];
+            $theGetUrl = get_Submit_Type($theSubmitType);
+            $theresponse = teamwork_curl($theGetUrl);
+            recent_activity_view($theresponse);
+        }
 
 
-    $theresponse = teamwork_curl($theGetUrl);
-render_the_return($theresponse);
+
     //echo $theresponse;
