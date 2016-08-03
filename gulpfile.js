@@ -26,6 +26,7 @@ gulp.task('browser-sync', ['sass'],  function() {
 
         files: [ // Directories of the files, HTML/TXT/JS... etc
             '*.php',
+            'views/*.php',
             'content/static-pages/*.htm',
             'content/placeholder/*.txt',
             'layouts/*.htm',
@@ -48,6 +49,7 @@ gulp.task('browser-sync', ['sass'],  function() {
     gulp.watch('styles/*.scss', ['sass']); // Watches the sass function
    gulp.watch('javascript/*.js', ['compress']); // Watches the javascript uglification function
     gulp.watch('*.php').on('change', reload);//watch main php files
+    gulp.watch('views/*.php').on('change', reload);//watch views php files
     gulp.watch('styles/styles-production/*.css').on('change', reload); //watch css and reload browser
     gulp.watch('javascript/javascript-production/*.js').on('change', reload); //reload on javascript uglification
 

@@ -20,9 +20,9 @@
 
 <script src="javascript/javascript-production/functions.js"></script>
 
-<link rel="stylesheet" href="styles/styles-production/css/app.css">
-<link rel="stylesheet" href="styles/styles-production/css/foundation.css">
-<link rel="stylesheet" href="styles/styles-production/css/foundation.min.css">
+<!--    <link rel="stylesheet" href="styles/styles-production/css/app.css">-->
+<!--    <link rel="stylesheet" href="styles/styles-production/css/foundation.css">-->
+<!--    <link rel="stylesheet" href="styles/styles-production/css/foundation.min.css">-->
 
 <link rel="stylesheet" href="styles/styles-production/styles.css">
     <title>Teamwork API Integration</title>
