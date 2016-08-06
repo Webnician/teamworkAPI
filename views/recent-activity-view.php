@@ -38,16 +38,28 @@
 <div class="middle olc-light-turq rounded" style="margin-bottom: 2%; width: 90%;">
              <h3 class="center" style="color: white"><?php echo $value->fromusername; ?></h3>
     <div style="font-weight: bold; padding: 3%;">
-              <?php
+        <h4 class=""style="color: white">
+        <?php
+            $theDateStart = $value->datetime;
+            $getTheLink = _Base_URL;
+            $addLinks = $value->link;
+            $totalLink = $getTheLink.'/'.$addLinks;
+            date_default_timezone_set('America/New_York');
 
-    echo $value->description;
-              echo      $value->datetime;
+            $theDateEnd =  date('M, j h:m a', strtotime($theDateStart));
+            echo $value->description; ?>
+            <span style="margin-left: 5%;">
+                <?php echo $theDateEnd; ?></span>
+        </h4>
+<span>
+            <?php
+
               echo $value->activitytype;
+                ?></span><span style="margin-left: 3%;"><a href='<?php
+              echo $totalLink; ?>'>View the Task</a></span><span style="margin-left: 3%;"><?php
+              echo "Task List :  ".$value->extradescription; ?></span> <?php
 
-              echo $value->link;
-              echo $value->extradescription;
-
-              echo $value->itemid;
+        //echo $value->itemid;
 ?>
     </div>
 </div>
